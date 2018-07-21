@@ -90,7 +90,6 @@ class Notifications extends \yii\base\Widget
         $html .= Html::tag('div', $header, ['class' => 'header']);
 
         $html .= Html::begintag('div', ['class' => 'notifications-list']);
-        //$html .= Html::tag('div', '<span class="ajax-loader"></span>', ['class' => 'loading-row']);
         $html .= Html::tag('div', Html::tag('span', Yii::t('modules/notifications', 'There are no notifications to show'), ['style' => 'display: none;']), ['class' => 'empty-row']);
         $html .= Html::endTag('div');
 

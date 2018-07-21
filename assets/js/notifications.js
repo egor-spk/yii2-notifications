@@ -121,7 +121,7 @@ var Notifications = (function(opts) {
     var markRead = function(mark){
         mark.off('click').on('click', function(){ return false; });
         mark.attr('title', options.readLabel);
-        mark.tooltip('dispose').tooltip();
+        mark.tooltip('dispose');
         mark.closest('.dropdown-item').addClass('read');
     };
 
