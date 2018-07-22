@@ -33,7 +33,7 @@ var Notifications = (function(opts) {
             '<span class="icon"></span> '+
             '<span class="message">' + object.message + '</span>' +
             '<small class="timeago">' + object.timeago + '</small>' +
-            '<span class="mark-read" data-toggle="tooltip" title="' + (object.read != '0' ? options.readLabel : options.markAsReadLabel) + '"></span>' +
+            '<span class="mark-read" title="' + (object.read != '0' ? options.readLabel : options.markAsReadLabel) + '"></span>' +
             '</div>';
         return $(html);
     };
@@ -75,7 +75,7 @@ var Notifications = (function(opts) {
                                 markRead(mark);
                             }
                         });
-                    }).tooltip();
+                    });
 
                     if(object.url){
                         item.on('click', function(e) {
@@ -121,7 +121,6 @@ var Notifications = (function(opts) {
     var markRead = function(mark){
         mark.off('click').on('click', function(){ return false; });
         mark.attr('title', options.readLabel);
-        mark.tooltip('dispose');
         mark.closest('.dropdown-item').addClass('read');
     };
 
