@@ -15,8 +15,8 @@ var Notifications = (function(opts) {
     var options = $.extend({
         pollInterval: 60000,
         xhrTimeout: 2000,
-        readLabel: 'прочитано',
-        markAsReadLabel: 'отметить'
+        readLabel: 'Прочитано',
+        markAsReadLabel: 'Отметить'
     }, opts);
 
     /**
