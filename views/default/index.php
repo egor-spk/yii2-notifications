@@ -25,18 +25,22 @@ $this->title = Yii::t('modules/notifications', 'Notifications');
 
 <div class="page-content">
     <ul id="notifications-items">
-        <?php if ($notifications): ?>
-            <?php foreach ($notifications as $notif): ?>
-                <li class="notification-item<?php if ($notif['read']): ?> read<?php endif; ?>"
-                    data-id="<?= $notif['id']; ?>" data-key="<?= $notif['key']; ?>">
-                    <a href="<?= $notif['url'] ?>">
+        <?php if (isset($notifications)): ?>
+            <?php foreach ($notifications as $notify): ?>
+                <li class="notification-item<?php if ($notify['read']): ?> read<?php endif; ?>"
+                    data-id="<?= $notify['id']; ?>" data-key="<?= $notify['key']; ?>">
+                    <a href="<?= $notify['url'] ?>">
                         <span class="icon"></span>
-                        <span class="message"><?= Html::encode($notif['message']); ?></span>
+                        <span class="message"><?= Html::encode($notify['message']); ?></span>
                     </a>
-                    <small class="timeago"><?= $notif['timeago']; ?></small>
-                    <span class="mark-read" title="<?php if ($notif['read']): ?><?php Yii::t('modules/notifications',
-                        'Read') ?><?php else: ?><?= Yii::t('modules/notifications',
-                        'Mark as read') ?><?php endif; ?>"></span>
+                    <small class="timeago"><?= $notify['timeago']; ?></small>
+
+                    <span class="mark-read" title=" <?php
+                    if ((bool)$notify['read']) {
+                        echo Yii::t('modules/notifications', 'Read');
+                    } else {
+                        echo Yii::t('modules/notifications', 'Mark as read');
+                    } ?>"></span>
                 </li>
             <?php endforeach; ?>
         <?php else: ?>
